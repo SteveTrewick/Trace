@@ -8,7 +8,7 @@ public struct Trace : Swift.Error {
   public let line     : Int
   public let file     : String
   public let function : String
-  public let custom   : Any?
+  public let context  : Any?
   
   /*
     Here we use the swift built in macros to grab source info from wherever we throw the error
@@ -22,7 +22,7 @@ public struct Trace : Swift.Error {
     self.line     = line
     self.file     = file
     self.function = function
-    self.custom   = custom
+    self.context   = custom
   }
   
   
