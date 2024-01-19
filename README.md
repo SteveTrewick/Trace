@@ -1,7 +1,10 @@
 # Trace
 
-A simple struct in swift that I use to build error handling when I have lots of low down 
+A simple struct in swift to build error handling when you have lots of low down 
 and dirty stuff deep in packages, etc, that will bubble errors up to importing code.
+
+Sooner or later, you will forget where you put them all, so it can be useful to 
+have an actual trace to look at.
 
 Honestly, this is probably not the right way to do it, but eh.
 
@@ -22,14 +25,14 @@ Your Trace struct will now contain something like ...
 ```
   Trace ( tag     : "oh no! something went horribly wrong", 
           source  : "MyFancyClass",  
-          line    :  29 
+          line    :  19 
           file    : "/path/to/your/file.swift", 
           function: "someFancyFunction", 
-          custom  :  nil 
+          context :  nil 
   )
 ```
 
-Unless you also passed a custom object/struct to provide more context.
+Unless you also passed a custom object/struct in context to provide more, err, context.
 
 
 And you can throw it, if you happen to like swift's exception handling.
