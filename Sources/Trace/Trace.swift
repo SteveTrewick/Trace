@@ -16,18 +16,18 @@ public struct Trace : Swift.Error {
     the most helpful info will be in the other fields.
   */
   
-  public init(file: String = #file, line: Int = #line, function: String = #function, _ source: Any, tag: String = "", custom: Any? = nil) {
+  public init(file: String = #file, line: Int = #line, function: String = #function, _ source: Any, tag: String = "", context: Any? = nil) {
     self.tag      = tag
     self.source   = String(describing: source)
     self.line     = line
     self.file     = file
     self.function = function
-    self.context   = custom
+    self.context  = context
   }
   
   
-  public static func trace(file: String = #file, line: Int = #line, function: String = #function, _ source: Any, tag: String = "", custom: Any? = nil) -> Trace {
-    return Trace(file: file, line: line, function: function, source, tag: tag, custom: custom)
+  public static func trace(file: String = #file, line: Int = #line, function: String = #function, _ source: Any, tag: String = "", context: Any? = nil) -> Trace {
+    return Trace(file: file, line: line, function: function, source, tag: tag, context: context)
   }
 }
 
