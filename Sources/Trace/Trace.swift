@@ -16,7 +16,7 @@ public struct Trace : Swift.Error {
     the most helpful info will be in the other fields.
   */
   
-  init(file: String = #file, line: Int = #line, function: String = #function, _ source: Any, tag: String = "", custom: Any? = nil) {
+  public init(file: String = #file, line: Int = #line, function: String = #function, _ source: Any, tag: String = "", custom: Any? = nil) {
     self.tag      = tag
     self.source   = String(describing: source)
     self.line     = line
