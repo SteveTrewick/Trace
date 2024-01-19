@@ -10,7 +10,8 @@ Honestly, this is probably not the right way to do it, but eh.
 
 Anyway...
 
-```
+```swift
+
 class MyFancyClass {
   // ...
 
@@ -19,10 +20,13 @@ class MyFancyClass {
     return .failure( .trace(self, tag: "oh no! something went horribly wrong" )
   }
 }
+
 ```
 
 Your Trace struct will now contain something like ...
-```
+
+```swift
+
   Trace ( tag     : "oh no! something went horribly wrong", 
           source  : "MyFancyClass",  
           line    :  19 
@@ -30,6 +34,7 @@ Your Trace struct will now contain something like ...
           function: "someFancyFunction", 
           context :  nil 
   )
+  
 ```
 
 Unless you also passed a custom object/struct in context to provide more, err, context.
@@ -37,7 +42,8 @@ Unless you also passed a custom object/struct in context to provide more, err, c
 
 And you can throw it, if you happen to like swift's exception handling.
 
-```
+```swift
+
 class MyFancyClass {
   // ...
 
@@ -46,12 +52,14 @@ class MyFancyClass {
     throw Trace(self, tag: "oh no! something went horribly wrong" )
   }
 }
+
 ```
 
 
 Or use it loosely typed to just an Error, wherever that's a thing.
 
-```
+```swift
+
 public func handler(_ result: Result<Int, Error>) {
   // ...
 }
